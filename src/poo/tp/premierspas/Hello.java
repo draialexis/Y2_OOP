@@ -5,7 +5,9 @@ import java.util.Arrays;
 
 public class Hello {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(args));
+        if (args.length == 0) {
+            throw new RuntimeException("please enter an argument");
+        }
         System.out.println("Hello " + args[0] + "!");
     }
 }
