@@ -2,18 +2,12 @@ package poo.tp.premierspas;
 
 import java.util.Random;
 
-public class ex2 {
-    public static void main(String[] args) {
-        if (args.length != 2) {
-            throw new RuntimeException("please enter two int arguments (int#1 < int#2)");
-        }
-        int a = Integer.parseInt(args[0]);
-        int b = Integer.parseInt(args[1]);
-        if (a >= b) {
-            throw new RuntimeException("please ensure that int#1 < int#2");
-        }
-        Random rdm = new Random();
-        int x = rdm.nextInt(b) + a;
+public class Ex2 {
+    int a;
+    int b;
+    int x;
+
+    void run() {
         int guess;
         System.out.println("you can enter 'q' to quit at any point");
         while (true) {
@@ -42,5 +36,19 @@ public class ex2 {
                 break;
             }
         }
+    }
+
+    public static void main(String[] args) {
+        if (args.length != 2) {
+            throw new RuntimeException("please enter two int arguments (int#1 < int#2)");
+        }
+
+        int a = Integer.parseInt(args[0]);
+        int b = Integer.parseInt(args[1]);
+        if (a >= b) {
+            throw new RuntimeException("please ensure that int#1 < int#2");
+        }
+        Random rdm = new Random();
+        int x = rdm.nextInt(b) + a;
     }
 }
