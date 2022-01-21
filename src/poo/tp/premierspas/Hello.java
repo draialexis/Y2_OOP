@@ -1,5 +1,5 @@
 package poo.tp.premierspas;
-// 1)
+// 1) & 5)
 
 import java.util.Arrays;
 
