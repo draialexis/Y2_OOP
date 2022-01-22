@@ -7,11 +7,45 @@ public class Ex2 {
     int b;
     int x;
 
+    public int getA() {
+        return a;
+    }
+
+    public void setA(int a) {
+        this.a = a;
+    }
+
+    public int getB() {
+        return b;
+    }
+
+    public void setB(int b) {
+        this.b = b;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public Ex2(int a, int b) {
+        if (a >= b) {
+            throw new RuntimeException("please ensure that int#1 < int#2");
+        }
+        this.a = a;
+        this.b = b;
+        Random rdm = new Random();
+        this.x = rdm.nextInt(b) + a;
+    }
+
     void run() {
         int guess;
         System.out.println("you can enter 'q' to quit at any point");
         while (true) {
-            String input = System.console().readLine(">: ");
+            String input = System.console().readLine("guess within [" + a + ", " + b + "] >: ");
 
             try {
                 guess = Integer.parseInt(input);
@@ -36,19 +70,5 @@ public class Ex2 {
                 break;
             }
         }
-    }
-
-    public static void main(String[] args) {
-        if (args.length != 2) {
-            throw new RuntimeException("please enter two int arguments (int#1 < int#2)");
-        }
-
-        int a = Integer.parseInt(args[0]);
-        int b = Integer.parseInt(args[1]);
-        if (a >= b) {
-            throw new RuntimeException("please ensure that int#1 < int#2");
-        }
-        Random rdm = new Random();
-        int x = rdm.nextInt(b) + a;
     }
 }
