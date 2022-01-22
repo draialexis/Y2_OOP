@@ -55,11 +55,31 @@ public class Personne {
         this.weddingDate = d;
     }
 
+    public Personne(String name, String surname, Date dob, boolean married, Date weddingDate, Personne mother, Personne father) {
+        this.name = name;
+        this.surname = surname;
+        this.dob = dob;
+        this.married = married;
+        this.weddingDate = weddingDate;
+        this.mother = mother;
+        this.father = father;
+    }
+
+    public Personne(String name, String surname, Date dob, Personne mother, Personne father) {
+        this.name = name;
+        this.surname = surname;
+        this.dob = dob;
+        this.mother = mother;
+        this.father = father;
+    }
+
     public Personne(String name, String surname, Date dob) {
         this.name = name;
         this.surname = surname;
         this.dob = dob;
     }
+
+
 
     @Override
     public String toString() {
@@ -69,6 +89,31 @@ public class Personne {
                 ", dob=" + dob +
                 ", married=" + married +
                 ", weddingDate=" + weddingDate +
+                ", parent_1=" + mother +
+                ", parent_2=" + father +
                 '}';
     }
+
+    // ex5, 1)
+
+    Personne mother;
+    Personne father;
+
+    public Personne getMother() {
+        return mother;
+    }
+
+    public Personne getFather() {
+        return father;
+    }
+
+    // 2)
+
+    boolean isSibling(Personne p) {
+        return (this.mother == p.mother || this.father == p.father);
+    }
+
+    // 3)
+
+    // goddamnit
 }
