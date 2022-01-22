@@ -7,30 +7,6 @@ public class Ex2 {
     int b;
     int x;
 
-    public int getA() {
-        return a;
-    }
-
-    public void setA(int a) {
-        this.a = a;
-    }
-
-    public int getB() {
-        return b;
-    }
-
-    public void setB(int b) {
-        this.b = b;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
     public Ex2(int a, int b) {
         if (a >= b) {
             throw new RuntimeException("please ensure that int#1 < int#2");
