@@ -5,7 +5,12 @@ public class Personne {
 
     String name;
     String surname;
+    char gender;
     Date dob;
+
+    public char getGender() {
+        return gender;
+    }
 
     public String getName() {
         return name;
@@ -19,8 +24,12 @@ public class Personne {
         return dob;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setSurname(String surname) throws IllegalAccessException {
+        if (gender == 'f') {
+            this.surname = surname;
+        } else {
+            throw new IllegalAccessException("male individuals can't change their surnames");
+        }
     }
 
     // 2)
@@ -44,20 +53,27 @@ public class Personne {
         this.weddingDate = weddingDate;
     }
 
-    void marry(Personne p, Date d) {
+    void marry(Personne p, Date d) throws IllegalAccessException {
         if (p.getDob().compareTo(d) >= 0 || dob.compareTo(d) >= 0) {
             throw new IllegalArgumentException("someone's date of birth is posterior or equal to wedding date");
         }
         p.setMarried(true);
-        p.setSurname(this.surname);
+        String tmp = p.getSurname();
+        if (p.getGender() == 'f') {
+            p.setSurname(this.surname);
+        }
+        if (gender == 'f') {
+            this.surname = tmp;
+        }
         this.married = true;
         p.setWeddingDate(d);
         this.weddingDate = d;
     }
 
-    public Personne(String name, String surname, Date dob, boolean married, Date weddingDate, Personne mother, Personne father) {
+    public Personne(String name, String surname, char gender, Date dob, boolean married, Date weddingDate, Personne mother, Personne father) {
         this.name = name;
         this.surname = surname;
+        this.gender = gender;
         this.dob = dob;
         this.married = married;
         this.weddingDate = weddingDate;
@@ -65,20 +81,21 @@ public class Personne {
         this.father = father;
     }
 
-    public Personne(String name, String surname, Date dob, Personne mother, Personne father) {
+    public Personne(String name, String surname, char gender, Date dob, Personne mother, Personne father) {
         this.name = name;
         this.surname = surname;
+        this.gender = gender;
         this.dob = dob;
         this.mother = mother;
         this.father = father;
     }
 
-    public Personne(String name, String surname, Date dob) {
+    public Personne(String name, String surname, char gender, Date dob) {
         this.name = name;
         this.surname = surname;
+        this.gender = gender;
         this.dob = dob;
     }
-
 
 
     @Override
@@ -114,6 +131,5 @@ public class Personne {
     }
 
     // 3)
-
     // goddamnit
 }

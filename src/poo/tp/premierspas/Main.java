@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IllegalAccessException {
         /* q2
         if (args.length != 2) {
             throw new RuntimeException("please enter two int arguments (int#1 < int#2)");
@@ -38,8 +38,8 @@ public class Main {
         Date d5 = new Date(1, 4, 154);
 
 
-        Personne p1 = new Personne("a", "A", d1);
-        Personne p2 = new Personne("b", "B", d2);
+        Personne p1 = new Personne("a", "A", 'm', d1);
+        Personne p2 = new Personne("b", "B", 'm', d2);
         System.out.println(p1 + " & " + p2);
         p1.marry(p2, d3);
         System.out.println(p1 + " & " + p2);
