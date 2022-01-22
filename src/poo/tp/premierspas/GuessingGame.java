@@ -2,12 +2,12 @@ package poo.tp.premierspas;
 
 import java.util.Random;
 
-public class Ex2 {
+public class GuessingGame {
     int a;
     int b;
     int x;
 
-    public Ex2(int a, int b) {
+    public GuessingGame(int a, int b) {
         if (a >= b) {
             throw new RuntimeException("please ensure that int#1 < int#2");
         }
