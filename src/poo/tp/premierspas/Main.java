@@ -34,8 +34,6 @@ public class Main {
         Date d1 = new Date(1, 3, 154);
         Date d2 = new Date(5, 3, 57);
         Date d3 = new Date(9, 3, 237);
-        Date d4 = new Date(1, 3, 154);
-        Date d5 = new Date(1, 4, 154);
 
 
         Personne p1 = new Personne("a", "A", 'm', d1);

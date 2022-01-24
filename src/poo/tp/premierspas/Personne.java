@@ -55,7 +55,7 @@ public class Personne {
 
     void marry(Personne p, Date d) throws IllegalAccessException {
         if (p.getDob().compareTo(d) >= 0 || dob.compareTo(d) >= 0) {
-            throw new IllegalArgumentException("someone's date of birth is posterior or equal to wedding date");
+            throw new IllegalArgumentException("someone's date of birth is posterior or equal to their wedding date");
         }
         p.setMarried(true);
         String tmp = p.getSurname();
@@ -70,6 +70,14 @@ public class Personne {
         this.weddingDate = d;
     }
 
+    public Personne(String name, String surname, char gender, Date dob, Personne mother, Personne father) {
+        this(name, surname, gender, dob, false, null, mother, father);
+    }
+
+    public Personne(String name, String surname, char gender, Date dob) {
+        this(name, surname, gender, dob, false, null, null, null);
+    }
+
     public Personne(String name, String surname, char gender, Date dob, boolean married, Date weddingDate, Personne mother, Personne father) {
         this.name = name;
         this.surname = surname;
@@ -80,23 +88,6 @@ public class Personne {
         this.mother = mother;
         this.father = father;
     }
-
-    public Personne(String name, String surname, char gender, Date dob, Personne mother, Personne father) {
-        this.name = name;
-        this.surname = surname;
-        this.gender = gender;
-        this.dob = dob;
-        this.mother = mother;
-        this.father = father;
-    }
-
-    public Personne(String name, String surname, char gender, Date dob) {
-        this.name = name;
-        this.surname = surname;
-        this.gender = gender;
-        this.dob = dob;
-    }
-
 
     @Override
     public String toString() {
@@ -127,7 +118,8 @@ public class Personne {
     // 2)
 
     boolean isSibling(Personne p) {
-        return (this.mother == p.mother || this.father == p.father);
+        return (((p.mother != null && this.mother != null) || (p.father != null && this.father != null))
+                && (this.mother == p.mother || this.father == p.father));
     }
 
     // 3)
