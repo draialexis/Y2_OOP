@@ -3,10 +3,10 @@ package poo.tp.premierspas;
 public class Personne {
     // 1)
 
-    String name;
-    String surname;
-    char gender;
-    Date dob;
+    private String name;
+    private String surname;
+    private char gender;
+    private Date dob;
 
     public char getGender() {
         return gender;
@@ -78,7 +78,8 @@ public class Personne {
         this(name, surname, gender, dob, false, null, null, null);
     }
 
-    public Personne(String name, String surname, char gender, Date dob, boolean married, Date weddingDate, Personne mother, Personne father) {
+    public Personne(String name, String surname, char gender, Date dob, boolean married, Date weddingDate,
+                    Personne mother, Personne father) {
         this.name = name;
         this.surname = surname;
         this.gender = gender;
@@ -91,15 +92,8 @@ public class Personne {
 
     @Override
     public String toString() {
-        return "Personne{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", dob=" + dob +
-                ", married=" + married +
-                ", weddingDate=" + weddingDate +
-                ", parent_1=" + mother +
-                ", parent_2=" + father +
-                '}';
+        return "Personne{" + "name='" + name + '\'' + ", surname='" + surname + '\'' + ", dob=" + dob + ", married="
+                + married + ", weddingDate=" + weddingDate + ", parent_1=" + mother + ", parent_2=" + father + '}';
     }
 
     // ex5, 1)

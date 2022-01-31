@@ -3,9 +3,9 @@ package poo.tp.premierspas;
 // 1)
 
 public class Date implements Comparable<Date> {
-    int day;
-    int month;
-    int year;
+    private int day;
+    private int month;
+    private int year;
 
     public int getDay() {
         return day;

@@ -3,9 +3,9 @@ package poo.tp.premierspas;
 import java.util.Random;
 
 public class GuessingGame {
-    int a;
-    int b;
-    int x;
+    private int a;
+    private int b;
+    private int x;
 
     public GuessingGame(int a, int b) {
         if (a >= b) {

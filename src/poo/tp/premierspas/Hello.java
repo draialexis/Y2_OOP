@@ -1,8 +1,6 @@
 package poo.tp.premierspas;
 // 1) & 5)
 
-import java.util.Arrays;
-
 public class Hello {
     public static void main(String[] args) {
         if (args.length == 0) {
