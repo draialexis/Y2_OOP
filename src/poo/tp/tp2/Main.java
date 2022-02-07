@@ -32,7 +32,7 @@ public class Main
         word.afficheVoyelles();
 
         // ex2q4
-        System.out.println("isPalidrome = " + word.isPalindrome());
+        System.out.println("isPalindrome = " + word.isPalindrome());
 
         // ex2q5
         Word wordCandidate = new Word();
