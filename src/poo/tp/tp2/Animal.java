@@ -1,19 +1,23 @@
 package poo.tp.tp2;
 
-public abstract class Animal {
+public abstract class Animal
+{
     // ex1q1
-    private String name;
+    private final String name;
 
-    public String getName() {
-        return name;
+    public String getName()
+    {
+        return this.name;
     }
 
     @Override
-    public String toString() {
-        return "Animal{" + "name='" + name + "'}";
+    public String toString()
+    {
+        return "Animal{" + "name='" + this.name + "'}";
     }
 
-    protected Animal(String name) {
+    protected Animal(String name)
+    {
         this.name = name;
     }
 }

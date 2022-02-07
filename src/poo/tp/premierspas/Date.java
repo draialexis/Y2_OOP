@@ -2,55 +2,91 @@ package poo.tp.premierspas;
 
 // 1)
 
-public class Date implements Comparable<Date> {
-    private int day;
-    private int month;
-    private int year;
+public class Date implements Comparable<Date>
+{
+    private final int day;
+    private final int month;
+    private final int year;
 
-    public int getDay() {
+    public int getDay()
+    {
+        return this.day;
+    }
+
+    public int getMonth()
+    {
+        return this.month;
+    }
+
+    public int getYear()
+    {
+        return this.year;
+    }
+
+    public Date(int day, int month, int year)
+    {
+        this.day = validateD(day);
+        this.month = validateM(month);
+        this.year = validateY(year);
+    }
+
+    private int validateD(int day)
+    {
+        if (1 > day || day > 31)
+        {
+            throw new IllegalArgumentException("day:[1, 31]");
+        }
         return day;
     }
 
-    public int getMonth() {
+    private int validateM(int month)
+    {
+        if (1 > month || month > 12)
+        {
+            throw new IllegalArgumentException("month:[1, 12]");
+        }
         return month;
     }
 
-    public int getYear() {
-        return year;
-    }
-
-    public Date(int day, int month, int year) {
-        if (day < 1 || day > 31 || month < 1 || month > 12 || year < 0) {
-            throw new IllegalArgumentException("day:[1, 31]; month:[1, 12]; year[0, +oo[");
+    private int validateY(int year)
+    {
+        if (year < 0)
+        {
+            throw new IllegalArgumentException("year[0, MAX_INT]");
         }
-
-        this.day = day;
-        this.month = month;
-        this.year = year;
+        return year;
     }
 
     // 3)
 
     @Override
-    public String toString() {
-        return day + "-" + month + "-" + year;
+    public String toString()
+    {
+        return String.format("%02d/%02d/%04d", this.day, this.month, this.year);
     }
 
     // 4)
 
     @Override
-    public int compareTo(Date d) {
-        if (year < d.getYear()) {
+    public int compareTo(Date d)
+    {
+        if (this.year < d.getYear())
+        {
             return -1;
-        } else if (year > d.getYear()) {
+        } else if (this.year > d.getYear())
+        {
             return 1;
-        } else {
-            if (month < d.getMonth()) {
+        } else
+        {
+            if (this.month < d.getMonth())
+            {
                 return -1;
-            } else if (month > d.getMonth()) {
+            } else if (this.month > d.getMonth())
+            {
                 return 1;
-            } else {
-                return Integer.compare(day, d.getDay());
+            } else
+            {
+                return Integer.compare(this.day, d.getDay());
             }
         }
     }

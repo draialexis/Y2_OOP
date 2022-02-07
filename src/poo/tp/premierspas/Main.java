@@ -2,12 +2,15 @@ package poo.tp.premierspas;
 
 import java.util.Arrays;
 
-public class Main {
+public class Main
+{
 
-    public static void main(String[] args) throws IllegalAccessException {
+    public static void main(String[] args) throws IllegalAccessException
+    {
 
         // q2
-        if (args.length != 2) {
+        if (args.length != 2)
+        {
             throw new RuntimeException("please enter two int arguments (int#1 < int#2)");
         }
 

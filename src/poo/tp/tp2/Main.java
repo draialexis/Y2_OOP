@@ -2,15 +2,17 @@ package poo.tp.tp2;
 
 import java.util.Arrays;
 
-public class Main {
-    public static void main(String args[]) {
+public class Main
+{
+    public static void main(String[] args)
+    {
         // ex1q3 : the overridden methods are called.
         // Without one, the superclass' methods would be used instead.
 
         Dog dog = new Dog("dog");
         Animal cat = new Cat("cat");
-        System.out.println(dog.toString());
-        System.out.println(cat.toString());
+        System.out.println(dog);
+        System.out.println(cat);
 
         // ex1q4
         dog.woof();
