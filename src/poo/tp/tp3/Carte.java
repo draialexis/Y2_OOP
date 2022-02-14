@@ -2,18 +2,31 @@ package poo.tp.tp3;
 
 import java.util.Objects;
 
-enum couleur
+enum Couleur
 {
     PIQUE, COEUR, CARREAU, TREFLE
 }
 
-public class Carte implements Comparable
+public class Carte implements Comparable<Carte>
 {
     private final int valeur;
-    private final couleur couleur;
+    private final Couleur couleur;
 
-    Carte(int valeur, couleur couleur)
+    Carte(int valeur, Couleur couleur)
     {
+        boolean isValid = false;
+        for (Couleur c : Couleur.values())
+        {
+            if (c.name().equals(couleur.name()))
+            {
+                isValid = true;
+                break;
+            }
+        }
+        if (!isValid)
+        {
+            throw new IllegalArgumentException("yadda yadda yadda");
+        }
         this.valeur = valeur;
         this.couleur = couleur;
     }
@@ -23,7 +36,7 @@ public class Carte implements Comparable
         return this.valeur;
     }
 
-    couleur getCouleur()
+    Couleur getCouleur()
     {
         return couleur;
     }
@@ -50,17 +63,16 @@ public class Carte implements Comparable
     }
 
     @Override
-    public int compareTo(Object o)
+    public int compareTo(Carte o)
     {
         if (this.equals(o)) return 0;
-        Carte carte = (Carte) o;
-        if (this.valeur < carte.valeur) return -1;
-        if (this.valeur > carte.valeur) return 1;
-        if (this.couleur == poo.tp.tp3.couleur.PIQUE) return 1;
-        if (carte.couleur == poo.tp.tp3.couleur.PIQUE) return -1;
-        if (this.couleur == poo.tp.tp3.couleur.TREFLE) return -1;
-        if (carte.couleur == poo.tp.tp3.couleur.TREFLE) return 1;
-        if (this.couleur == poo.tp.tp3.couleur.CARREAU) return 1;
+        if (this.valeur < o.valeur) return -1;
+        if (this.valeur > o.valeur) return 1;
+        if (this.couleur == poo.tp.tp3.Couleur.PIQUE) return 1;
+        if (o.couleur == poo.tp.tp3.Couleur.PIQUE) return -1;
+        if (this.couleur == poo.tp.tp3.Couleur.TREFLE) return -1;
+        if (o.couleur == poo.tp.tp3.Couleur.TREFLE) return 1;
+        if (this.couleur == poo.tp.tp3.Couleur.CARREAU) return 1;
         System.out.println("This should never have happened (compareTo(), Carte)");
         return 42;//this shouldn't be possible
     }
