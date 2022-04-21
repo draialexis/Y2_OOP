@@ -1,4 +1,4 @@
-package poo.tp.tp3;
+package poo.tp.old.tp3;
 
 import java.util.Objects;
 
@@ -68,11 +68,11 @@ public class Carte implements Comparable<Carte>
         if (this.equals(o)) return 0;
         if (this.valeur < o.valeur) return -1;
         if (this.valeur > o.valeur) return 1;
-        if (this.couleur == poo.tp.tp3.Couleur.PIQUE) return 1;
-        if (o.couleur == poo.tp.tp3.Couleur.PIQUE) return -1;
-        if (this.couleur == poo.tp.tp3.Couleur.TREFLE) return -1;
-        if (o.couleur == poo.tp.tp3.Couleur.TREFLE) return 1;
-        if (this.couleur == poo.tp.tp3.Couleur.CARREAU) return 1;
+        if (this.couleur == poo.tp.old.tp3.Couleur.PIQUE) return 1;
+        if (o.couleur == poo.tp.old.tp3.Couleur.PIQUE) return -1;
+        if (this.couleur == poo.tp.old.tp3.Couleur.TREFLE) return -1;
+        if (o.couleur == poo.tp.old.tp3.Couleur.TREFLE) return 1;
+        if (this.couleur == poo.tp.old.tp3.Couleur.CARREAU) return 1;
         System.out.println("This should never have happened (compareTo(), Carte)");
         return 42;//this shouldn't be possible
     }

@@ -1,4 +1,4 @@
-package poo.tp.tp2;
+package poo.tp.old.tp2;
 
 public class Word
 {

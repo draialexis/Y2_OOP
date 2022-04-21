@@ -1,4 +1,4 @@
-package poo.tp.premierspas;
+package poo.tp.old.premierspas;
 // 1) & 5)
 
 public class Hello
@@ -21,6 +21,6 @@ public class Hello
 // 4) "-d" enables us to specify the output directory
 // package statement helps us define the structure of our project, and earmark specific files according to it
 // javac -d build src/poo/tp/premierspas/*.java --> build/<Hello.class>
-// java -cp build poo.tp.premierspas.Hello ---> Hello World!
+// java -cp build poo.tp.old.premierspas.Hello ---> Hello World!
 // "-cp" helps us specify the location of classes and packages. classpath...
 

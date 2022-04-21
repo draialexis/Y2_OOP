@@ -1,4 +1,4 @@
-package poo.tp.premierspas;
+package poo.tp.old.premierspas;
 
 // 1)
 
@@ -93,4 +93,4 @@ public class Date implements Comparable<Date>
 }
 // 2)
 // javac -Xlint:all -d build src/poo/tp/premierspas/Date.java
-// java -cp build poo.tp.premierspas.Date
+// java -cp build poo.tp.old.premierspas.Date

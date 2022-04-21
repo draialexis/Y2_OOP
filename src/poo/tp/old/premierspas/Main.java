@@ -1,4 +1,4 @@
-package poo.tp.premierspas;
+package poo.tp.old.premierspas;
 
 import java.util.Arrays;
 
