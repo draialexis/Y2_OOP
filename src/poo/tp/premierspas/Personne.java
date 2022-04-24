@@ -41,8 +41,18 @@ public abstract class Personne
         this.weddingDate = weddingDate;
         this.spouse = spouse;
         this.dob = dob;
-        this.addParent(p1);
-        this.addParent(p2);
+        Personne[] varParents = new Personne[]{p1, p2};
+        for (Personne varParent : varParents)
+        {
+            if (varParent == null)
+            {
+                this.parents.add(null);
+            }
+            else
+            {
+                this.addParent(varParent);
+            }
+        }
     }
 
     public boolean addParent(Personne parent)
@@ -76,7 +86,7 @@ public abstract class Personne
         }
         for (Personne p : other.getParents())
         {
-            if (this.parents.contains(p))
+            if (this.parents.contains(p) && p != null)
             {
                 return true;
             }
@@ -199,6 +209,9 @@ public abstract class Personne
     @Override
     public String toString()
     {
-        return String.format("Person<%s>", this.getFullName());
+        return String.format("Person<%s, married on: %s, to: %s>",
+                             this.getFullName(),
+                             this.getWeddingDate(),
+                             this.getSpouse() == null ? "N/A" : this.getSpouse().getFullName());
     }
 }
